@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Календарь занятий (Вт/Пт) 2026</title>
+    <title>Kate's Calendar</title>
     <style>
         * {
             margin: 0;
@@ -97,39 +97,19 @@
             font-size: 0.8em;
             font-style: normal;
         }
-        /* Хайлайт стал нежно-голубым */
         .highlight-day {
-            background-color: #e8f7ff !important; /* Нежно-голубой фон */
-            box-shadow: inset 0 0 0 2px #87ceeb;   /* Голубая рамка */
+            background-color: #e8f7ff !important;
+            box-shadow: inset 0 0 0 2px #87ceeb;
             font-weight: 600;
         }
         .empty {
             background-color: transparent;
             box-shadow: none;
         }
-        .header {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 5px;
-        }
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
     <div class="calendar-container">
-        <div class="header">
-            <h1>📅 Календарь занятий 2026</h1>
-            <p>Занятия по вторникам и пятницам (8 занятий)</p>
-        </div>
-
         <!-- Январь 2026 -->
         <div class="month">
             <h2 class="month-title">Январь 2026</h2>
@@ -160,7 +140,7 @@
 
                 <div class="day">12</div>
                 <div class="day lesson-day highlight-day">13</div>
-                <div class="day">14</div>
+                <div class="day highlight-day">14</div>
                 <div class="day">15</div>
                 <div class="day lesson-day highlight-day">16</div>
                 <div class="day weekend">17</div>
@@ -168,18 +148,18 @@
 
                 <div class="day">19</div>
                 <div class="day lesson-day highlight-day">20</div>
-                <div class="day">21</div>
+                <div class="day highlight-day">21</div>
                 <div class="day">22</div>
                 <div class="day lesson-day highlight-day">23</div>
-                <div class="day weekend">24</div>
+                <div class="day highlight-day">24</div>
                 <div class="day weekend">25</div>
 
                 <div class="day">26</div>
                 <div class="day lesson-day highlight-day">27</div>
-                <div class="day">28</div>
+                <div class="day highlight-day">28</div>
                 <div class="day">29</div>
                 <div class="day lesson-day highlight-day">30</div>
-                <div class="day weekend">31</div>
+                <div class="day highlight-day">31</div>
             </div>
         </div>
 
@@ -197,15 +177,15 @@
 
                 <div class="day">2</div>
                 <div class="day lesson-day highlight-day">3</div>
-                <div class="day">4</div>
+                <div class="day highlight-day">4</div>
                 <div class="day">5</div>
                 <div class="day lesson-day highlight-day">6</div>
                 <div class="day weekend">7</div>
                 <div class="day weekend">8</div>
 
-                <div class="day">9</div>
-                <div class="day lesson-day">10</div>
-                <div class="day highlight-day">11</div>
+                <div class="day highlight-day">9</div>
+                <div class="day lesson-day highlight-day">10</div>
+                <div class="day">11</div>
                 <div class="day">12</div>
                 <div class="day lesson-day">13</div>
                 <div class="day weekend">14</div>
@@ -229,38 +209,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.querySelectorAll('.lesson-day').forEach(day => {
-            day.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-                const monthTitle = this.closest('.month').querySelector('.month-title').textContent.split(' ')[0];
-                const lessonDates = {
-                    "Январь": ["13", "16", "20", "23", "27", "30"],
-                    "Февраль": ["3", "6", "10", "13"]
-                };
-                const lessonNumber = lessonDates[monthTitle]?.indexOf(this.textContent) + 1;
-                const totalInMonth = lessonDates[monthTitle]?.length;
-                alert(`Занятие ${lessonNumber} из ${totalInMonth} в ${monthTitle.toLowerCase()}: ${this.textContent} ${monthTitle.toLowerCase()}`);
-            });
-        });
-        
-        // Обновленный цвет при наведении для нежно-голубого хайлайта
-        document.querySelectorAll('.highlight-day').forEach(day => {
-            day.addEventListener('mouseenter', function() {
-                if(!this.classList.contains('lesson-day')) {
-                    this.style.backgroundColor = '#d4edff'; /* Более насыщенный голубой при наведении */
-                }
-            });
-            day.addEventListener('mouseleave', function() {
-                if(!this.classList.contains('lesson-day')) {
-                    this.style.backgroundColor = '#e8f7ff'; /* Возвращаем нежно-голубой */
-                }
-            });
-        });
-    </script>
 </body>
 </html>
