@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Календарь для Кати 2026</title>
+    <title>Kate 2026</title>
     <style>
         * {
             margin: 0;
@@ -12,170 +12,90 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #f9f0ff 0%, #e6d4f7 100%);
+            background: #f5f5f5;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: #333;
         }
         .calendar-container {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
-            max-width: 1400px;
-            background-color: rgba(255, 255, 255, 0.97);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(80, 50, 120, 0.15);
+            max-width: 1200px;
         }
         .month {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 500px;
-            transition: transform 0.3s ease;
-        }
-        .month:hover {
-            transform: translateY(-5px);
+            max-width: 450px;
         }
         .month-title {
             text-align: center;
-            font-size: 1.7em;
-            margin-bottom: 25px;
-            color: #6a4c9c;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #f0e6ff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
             padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 7px;
+            gap: 6px;
             text-align: center;
         }
         .day-name {
             font-weight: 600;
-            color: #8a63d2;
+            color: #555;
             padding: 10px 5px;
             font-size: 0.9em;
-            background-color: #f8f4ff;
-            border-radius: 8px;
+            background-color: #f8f8f8;
+            border-radius: 6px;
         }
         .day {
-            padding: 13px 5px;
+            padding: 12px 5px;
             background-color: #f9f9f9;
-            border-radius: 10px;
-            font-size: 1.05em;
+            border-radius: 8px;
+            font-size: 1em;
             position: relative;
-            transition: all 0.2s ease;
-            min-height: 50px;
+            min-height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .day:hover {
-            background-color: #f0eaff;
-        }
         .weekend {
-            color: #d45c84;
-            background-color: #fff0f5;
+            color: #999;
+            background-color: #f5f5f5;
         }
         .lesson-day {
-            background-color: #f0e6ff;
-            border: 2px solid #8a63d2;
-            color: #6a4c9c;
+            background-color: #e8f4ff;
+            border: 2px solid #4a90e2;
+            color: #2c6cb0;
             font-weight: 600;
-            font-style: italic;
         }
         .lesson-day::after {
             content: '🎓';
             position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 0.8em;
-            font-style: normal;
+            top: 4px;
+            right: 4px;
+            font-size: 0.7em;
         }
         .highlight-day {
-            background-color: #fffacd !important;
+            background-color: #fffacd;
             box-shadow: inset 0 0 0 2px #ffd700;
-            font-weight: 600;
         }
         .empty {
             background-color: transparent;
-            box-shadow: none;
-        }
-        .legend {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 1030px;
-        }
-        .legend h3 {
-            color: #6a4c9c;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .legend-items {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95em;
-        }
-        .color-box {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-        }
-        .lesson-color { background-color: #f0e6ff; border: 1px solid #8a63d2; }
-        .highlight-color { background-color: #fffacd; border: 1px solid #ffd700; }
-        .weekend-color { background-color: #fff0f5; border: 1px solid #d45c84; }
-        .normal-color { background-color: #f9f9f9; border: 1px solid #ddd; }
-        .info-box {
-            background-color: #f0e6ff;
-            border-left: 4px solid #8a63d2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.95em;
-        }
-        .header {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #6a4c9c;
-        }
-        .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 5px;
-        }
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <div class="calendar-container">
-        <div class="header">
-            <h1>📅 Учебный календарь 2026</h1>
-            <p>для Кати | Занятия по вторникам и пятницам</p>
-        </div>
-
         <!-- Январь 2026 -->
         <div class="month">
             <h2 class="month-title">Январь 2026</h2>
@@ -274,63 +194,6 @@
                 <div class="day empty"></div>
             </div>
         </div>
-
-        <!-- Легенда -->
-        <div class="legend">
-            <h3>Обозначения в календаре</h3>
-            <div class="legend-items">
-                <div class="legend-item">
-                    <div class="color-box lesson-color"></div>
-                    <span>Дни занятий (Вт, Пт) с шапочкой магистра 🎓</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box highlight-color"></div>
-                    <span>20 рабочих дней (без выходных)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box weekend-color"></div>
-                    <span>Выходные дни (Сб, Вс)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box normal-color"></div>
-                    <span>Обычные рабочие дни</span>
-                </div>
-            </div>
-            
-            <div class="info-box">
-                <strong>Информация для Кати:</strong><br>
-                <strong>Занятия (вторники и пятницы):</strong> 13, 16, 20, 23, 27, 30 января и 3, 6, 10, 13 февраля.<br>
-                <strong>Расчёт 20 рабочих дней:</strong> Отсчёт начат с первого занятия (13 января, вторник).<br>
-                <strong>Период 20 рабочих дней:</strong> 13 января - 11 февраля 2026 (включительно).<br>
-                <strong>Исключены:</strong> все субботы и воскресенья (17-18, 24-25, 31 января, 7-8, 14-15, 21-22 февраля).
-            </div>
-        </div>
     </div>
-
-    <script>
-        document.querySelectorAll('.lesson-day').forEach(day => {
-            day.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-                alert('Выбрано занятие: ' + this.textContent + ' ' + 
-                      (this.closest('.month').querySelector('.month-title').textContent.split(' ')[0]));
-            });
-        });
-        
-        document.querySelectorAll('.highlight-day').forEach(day => {
-            day.addEventListener('mouseenter', function() {
-                if(!this.classList.contains('lesson-day')) {
-                    this.style.backgroundColor = '#fff176';
-                }
-            });
-            day.addEventListener('mouseleave', function() {
-                if(!this.classList.contains('lesson-day')) {
-                    this.style.backgroundColor = '#fffacd';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
