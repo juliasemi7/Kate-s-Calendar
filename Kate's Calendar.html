@@ -97,31 +97,10 @@
             font-size: 0.8em;
             font-style: normal;
         }
-        /* Занятия Кати — другой цвет (фиолетовый) */
-        .katya-lesson {
-            background-color: #f0e6ff !important;
-            border: 2px solid #9b59b6;
-            color: #8e44ad;
-        }
-        .katya-lesson::after {
-            content: 'К';
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            font-size: 0.8em;
-            font-weight: bold;
-            color: #8e44ad;
-        }
-        /* Хайлайт для пакета 1 (светло-синий) */
+        /* Хайлайт остаётся нежно-голубым ВСЕГДА */
         .highlight-day {
-            background-color: #e8f7ff !important; /* Светло-синий */
-            box-shadow: inset 0 0 0 2px #87ceeb;
-            font-weight: 600;
-        }
-        /* Хайлайт для пакета 2 (светло-голубой) */
-        .package-2 {
-            background-color: #e8ffff !important; /* Светло-голубой */
-            box-shadow: inset 0 0 0 2px #7fffd4;
+            background-color: #e8f7ff !important; /* Нежно-голубой фон */
+            box-shadow: inset 0 0 0 2px #87ceeb;   /* Голубая рамка */
             font-weight: 600;
         }
         .empty {
@@ -160,28 +139,27 @@
                 <div class="day weekend">10</div>
                 <div class="day weekend">11</div>
 
-                <!-- 20 рабочих дней с 13.01 по 09.02 (пакет 1) -->
-                <div class="day lesson-day highlight-day">12</div>
-                <div class="day katya-lesson highlight-day">13</div>
+                <div class="day">12</div>
+                <div class="day lesson-day highlight-day">13</div>
                 <div class="day highlight-day">14</div>
-                <div class="day lesson-day highlight-day">15</div>
-                <div class="day katya-lesson highlight-day">16</div>
+                <div class="day highlight-day">15</div>
+                <div class="day lesson-day highlight-day">16</div>
                 <div class="day weekend">17</div>
                 <div class="day weekend">18</div>
 
-                <div class="day lesson-day highlight-day">19</div>
-                <div class="day katya-lesson highlight-day">20</div>
+                <div class="day highlight-day">19</div>
+                <div class="day lesson-day highlight-day">20</div>
                 <div class="day highlight-day">21</div>
-                <div class="day lesson-day highlight-day">22</div>
-                <div class="day katya-lesson highlight-day">23</div>
+                <div class="day highlight-day">22</div>
+                <div class="day lesson-day highlight-day">23</div>
                 <div class="day weekend">24</div>
                 <div class="day weekend">25</div>
 
-                <div class="day lesson-day highlight-day">26</div>
-                <div class="day katya-lesson highlight-day">27</div>
+                <div class="day highlight-day">26</div>
+                <div class="day lesson-day highlight-day">27</div>
                 <div class="day highlight-day">28</div>
-                <div class="day lesson-day highlight-day">29</div>
-                <div class="day katya-lesson highlight-day">30</div>
+                <div class="day highlight-day">29</div>
+                <div class="day lesson-day highlight-day">30</div>
                 <div class="day weekend">31</div>
             </div>
         </div>
@@ -198,21 +176,17 @@
                 <div class="day-name weekend">Сб</div>
                 <div class="day-name weekend">Вс</div>
 
-                <div class="day empty"></div>
-                <!-- 2 февраля — последний день пакета 1 -->
-                <div class="day katya-lesson highlight-day">2</div>
-                <div class="day katya-lesson highlight-day">3</div>
+                <div class="day highlight-day">2</div>
+                <div class="day lesson-day highlight-day">3</div>
                 <div class="day highlight-day">4</div>
-                <div class="day lesson-day highlight-day">5</div>
-                <div class="day katya-lesson highlight-day">6</div>
+                <div class="day highlight-day">5</div>
+                <div class="day lesson-day highlight-day">6</div>
                 <div class="day weekend">7</div>
                 <div class="day weekend">8</div>
 
-                <!-- 9 февраля — последний день пакета 1 (20-й рабочий день) -->
                 <div class="day highlight-day">9</div>
-                <!-- С 10 февраля начинаем пакет 2 (светло-голубой) -->
-                <div class="day package-2">10</div>
-                <div class="day package-2">11</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
                 <div class="day">12</div>
                 <div class="day">13</div>
                 <div class="day weekend">14</div>
@@ -236,7 +210,10 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript полностью удалён - хайлайт остаётся нежно-голубым -->
 </body>
 </html>
+
+
+
+
 
