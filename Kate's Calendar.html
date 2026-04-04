@@ -271,7 +271,7 @@
     <div class="container">
         <header>
             <h1>2026</h1>
-            <div class="year-label">Katya's Calendar</div>
+            <div class="year-label">Kate's Calendar</div>
         </header>
         
         <main>
@@ -394,14 +394,14 @@
             const daysInMonth = getDaysInMonth(year, month);
             const firstDayIndex = getFirstDayOfMonth(year, month);
             
-            let html = `<div class="month-container"><div class="month-header">${monthNames[month]} ${year}</div><table class="calendar"><thead><tr>`;
+            let html = `<div class="month-container"><div class="month-header">${monthNames[month]} ${year}</div><table class="calendar"><thead></tr>`;
             
             for (let day of dayNames) {
                 const isWeekend = day === "Сб" || day === "Вс";
                 html += `<th${isWeekend ? ' style="color:#e74c3c;"' : ''}>${day}</th>`;
             }
             
-            html += `</tr></thead><tbody>`;
+            html += `</thead><tbody>`;
             
             let dayCounter = 1;
             
