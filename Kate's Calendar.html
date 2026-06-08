@@ -173,7 +173,7 @@
         <div><span class="l-p2"></span> Пакет 10.02 – 09.03</div>
         <div><span class="l-p3"></span> Пакет 10.03 – 06.04</div>
         <div><span class="l-p4"></span> Пакет 07.04 – 05.05</div>
-        <div><span class="l-p5"></span> Пакет 06.05 – 02.06</div>
+        <div><span class="l-p5"></span> Пакет 08.05 – 04.06</div>
         <div><span class="l-lesson"></span> Занятие Кати</div>
     </div>
 
@@ -221,13 +221,13 @@
         "2026-05-04","2026-05-05"
     ];
 
-    // НОВЫЙ ПАКЕТ 5: 06.05 – 02.06 (розовый)
+    // НОВЫЙ ПАКЕТ 5: 08.05 – 04.06 (коралловый)
     const pkg5 = [
-        "2026-05-06","2026-05-07","2026-05-08",
+        "2026-05-08",
         "2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15",
         "2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22",
         "2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29",
-        "2026-06-01","2026-06-02"
+        "2026-06-01","2026-06-02","2026-06-03","2026-06-04"
     ];
 
     // ---------- ЗАНЯТИЯ КАТИ (вторник + пятница) ----------
@@ -283,7 +283,7 @@
             const totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
 
             let html = `<div class="month-card"><div class="month-title">${months[m]} ${year}</div>
-                        <table class="calendar-table"><thead></td>`;
+                        <table class="calendar-table"><thead><tr>`;
             for (let w of weekDays) {
                 const isW = (w === "Сб" || w === "Вс");
                 html += `<th${isW ? ' style="color:#e74c3c;"' : ''}>${w}</th>`;
@@ -307,7 +307,7 @@
                 }
                 if (i % 7 === 6) html += "</tr>";
             }
-            html += `</tbody></table></div>`;
+            html += `</tbody></tr></div>`;
             container.innerHTML += html;
         }
     }
