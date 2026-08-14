@@ -110,6 +110,8 @@
         .p4 { background-color: #c0f0ee; font-weight: 600; }
         .p5 { background-color: #ffd2b5; font-weight: 600; }
         .p6 { background-color: #c0e0ff; font-weight: 600; }
+        .p7 { background-color: #b0e0c0; font-weight: 600; }
+        .p8 { background-color: #ffd2b5; font-weight: 600; }
 
         .lesson {
             border: 2px solid #1e6bb8;
@@ -122,6 +124,8 @@
         .both4 { background-color: #c0f0ee; border: 2px solid #1e6bb8; font-weight: 700; }
         .both5 { background-color: #ffd2b5; border: 2px solid #1e6bb8; font-weight: 700; }
         .both6 { background-color: #c0e0ff; border: 2px solid #1e6bb8; font-weight: 700; }
+        .both7 { background-color: #b0e0c0; border: 2px solid #1e6bb8; font-weight: 700; }
+        .both8 { background-color: #ffd2b5; border: 2px solid #1e6bb8; font-weight: 700; }
 
         .legend {
             display: flex;
@@ -150,6 +154,8 @@
         .l-p4 { background: #c0f0ee; border: 1px solid #40E0D0; }
         .l-p5 { background: #ffd2b5; border: 1px solid #FFA07A; }
         .l-p6 { background: #c0e0ff; border: 1px solid #80BFFF; }
+        .l-p7 { background: #b0e0c0; border: 1px solid #80BFFF; }
+        .l-p8 { background: #ffd2b5; border: 1px solid #FFA07A; }
         .l-lesson { background: white; border: 2px solid #1e6bb8; }
 
         footer {
@@ -178,6 +184,8 @@
         <div><span class="l-p4"></span> Пакет 07.04 – 05.05</div>
         <div><span class="l-p5"></span> Пакет 08.05 – 04.06</div>
         <div><span class="l-p6"></span> Пакет 05.06 – 03.07</div>
+        <div><span class="l-p7"></span> Пакет 07.07 – 03.08</div>
+        <div><span class="l-p8"></span> Пакет 04.08 – 31.08</div>
         <div><span class="l-lesson"></span> Занятие Кати</div>
     </div>
 
@@ -241,6 +249,22 @@
         "2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03"
     ];
 
+    const pkg7 = [
+        "2026-07-07","2026-07-08","2026-07-09","2026-07-10",
+        "2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17",
+        "2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24",
+        "2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31",
+        "2026-08-03"
+    ];
+
+    const pkg8 = [
+        "2026-08-04","2026-08-05","2026-08-06","2026-08-07",
+        "2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14",
+        "2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21",
+        "2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28",
+        "2026-08-31"
+    ];
+
     // ---------- ЗАНЯТИЯ КАТИ (вторник + пятница) ----------
     const lessons = [
         "2026-01-13","2026-01-16","2026-01-20","2026-01-23",
@@ -254,7 +278,13 @@
         "2026-05-08","2026-05-12","2026-05-15","2026-05-19",
         "2026-05-22","2026-05-26","2026-05-29","2026-06-02",
         "2026-06-05","2026-06-09","2026-06-16","2026-06-19",
-        "2026-06-23","2026-06-26","2026-06-30","2026-07-03"
+        "2026-06-23","2026-06-26","2026-06-30","2026-07-03",
+        // пакет 7 (8 занятий)
+        "2026-07-07","2026-07-10","2026-07-14","2026-07-17",
+        "2026-07-21","2026-07-24","2026-07-28","2026-07-31",
+        // пакет 8 (8 занятий)
+        "2026-08-04","2026-08-07","2026-08-11","2026-08-14",
+        "2026-08-18","2026-08-21","2026-08-25","2026-08-28"
     ];
 
     function getDaysInMonth(y,m) { return new Date(y, m+1, 0).getDate(); }
@@ -268,6 +298,8 @@
         const in4 = pkg4.includes(dateStr);
         const in5 = pkg5.includes(dateStr);
         const in6 = pkg6.includes(dateStr);
+        const in7 = pkg7.includes(dateStr);
+        const in8 = pkg8.includes(dateStr);
         const isLesson = lessons.includes(dateStr);
         const isWeekend = (new Date(y,m,d).getDay() === 0 || new Date(y,m,d).getDay() === 6);
 
@@ -277,12 +309,16 @@
         if (in4 && isLesson) return "both4";
         if (in5 && isLesson) return "both5";
         if (in6 && isLesson) return "both6";
+        if (in7 && isLesson) return "both7";
+        if (in8 && isLesson) return "both8";
         if (in1) return "p1";
         if (in2) return "p2";
         if (in3) return "p3";
         if (in4) return "p4";
         if (in5) return "p5";
         if (in6) return "p6";
+        if (in7) return "p7";
+        if (in8) return "p8";
         if (isLesson) return "lesson";
         if (isWeekend) return "weekend";
         return "";
